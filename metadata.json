@@ -1,0 +1,8 @@
+{
+  "name": "Academic Excellence - Class of 2024",
+  "description": "A premium, ceremonial graduation landing page and RSVP portal for the Class of 2024.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
