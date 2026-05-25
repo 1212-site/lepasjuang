@@ -17,17 +17,6 @@ export const WishCard = ({ wish, onDelete }: WishCardProps) => (
     className="navy-card p-6 rounded-xl relative overflow-hidden mb-6 group/card"
   >
     <Quote className="absolute top-4 right-4 w-10 h-10 text-white/5" />
-    
-    {onDelete && (
-      <button 
-        type="button"
-        onClick={onDelete}
-        className="absolute top-4 right-4 z-20 p-2 text-white/30 hover:text-red-400 hover:bg-red-500/10 rounded-lg md:opacity-0 md:group-hover/card:opacity-100 focus:opacity-100 transition-all cursor-pointer"
-        title="Hapus Ucapan"
-      >
-        <Trash2 className="w-4 h-4" />
-      </button>
-    )}
 
     <p className="text-blue-100/90 italic mb-6 relative z-10 font-sans leading-relaxed text-sm md:text-base pr-8">
       "{wish.message}"
