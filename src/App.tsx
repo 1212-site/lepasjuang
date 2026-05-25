@@ -99,7 +99,7 @@ export default function App() {
   useEffect(() => {
     const fetchWishes = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/wishes');
+        const res = await fetch('https://belepasjuang.smktibazma.sch.id/api/wishes');
         const data = await res.json();
 
         setWishes(data);
@@ -117,7 +117,7 @@ export default function App() {
     if (!formData.name.trim() || !formData.message.trim()) return;
 
     try {
-      const res = await fetch('http://localhost:3001/api/wishes', {
+      const res = await fetch('https://belepasjuang.smktibazma.sch.id/api/wishes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
