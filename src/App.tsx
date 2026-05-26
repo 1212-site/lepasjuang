@@ -397,7 +397,7 @@ export default function App() {
               </h3>
             </div>
 
-            <p className="text-[11px] text-blue-200/60 mt-4 leading-relaxed font-sans max-w-[280px]">Merupakan suatu kehormatan & kebahagiaan bagi kami apabila Anda dapat hadir di acara kami.</p>
+            <p className="text-[11px] text-blue-200/60 mt-4 leading-relaxed font-sans max-w-[280px]">Merupakan suatu kehormatan & kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir di acara kami.</p>
           </motion.div>
 
           {/* Countdown */}
