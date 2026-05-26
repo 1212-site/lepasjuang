@@ -260,7 +260,7 @@ export default function App() {
                   <Sparkles className="w-3.5 h-3.5 text-gold/30 animate-pulse" />
                 </div>
 
-                <span className="text-[10px] uppercase tracking-[0.25em] text-gold block mb-2 font-bold">Kepada Yth. Bapak/Ibu/Sdr/i:</span>
+                <span className="text-[10px] uppercase tracking-[0.25em] text-gold block mb-2 font-bold">Kepada Yth. </span>
 
                 <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-extrabold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
                   {invitation.guest_name}
@@ -382,14 +382,11 @@ export default function App() {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-gold font-bold block mb-1">Kepada Yth.</span>
-            <span className="text-xs text-blue-200/50 block mb-4 font-sans italic">Bapak/Ibu/Saudara/Saudari:</span>
 
             <div className="w-full py-4 px-3 bg-navy-darkest/60 border border-white/5 rounded-xl my-1 backdrop-blur-md overflow-hidden">
               <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-bold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
                 {invitation.guest_name}
               </h3>
-
-              
             </div>
 
             <p className="text-[11px] text-blue-200/60 mt-4 leading-relaxed font-sans max-w-[280px]">Merupakan suatu kehormatan & kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir di acara kami.</p>
