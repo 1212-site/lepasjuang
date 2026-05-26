@@ -5,15 +5,19 @@ import { Wish, FallingElement } from './types';
 import { CountdownItem } from './components/CountdownItem';
 import { GalleryCard } from './components/GalleryCard';
 import { WishCard } from './components/WishCard';
+import { useParams } from 'react-router-dom';
 
 // --- Main App ---
 
 export default function App() {
   const targetDate = new Date('2026-06-02T08:00:00').getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
+  const { slug } = useParams();
   const [wishes, setWishes] = useState<Wish[]>([]);
-
+  const [invitation, setInvitation] = useState({
+    guest_name: 'Memuat...',
+    guest_title: 'Wali Siswa Angkatan #2',
+  });
   const [formData, setFormData] = useState({ name: '', major: '', message: '' });
 
   // --- Dynamic Guest Greeting States ---
@@ -52,6 +56,32 @@ export default function App() {
       setHasCustomGuest(true);
     }
   }, []);
+
+  useEffect(() => {
+    const fetchGuest = async () => {
+      try {
+        const res = await fetch(`https://belepasjuang.smktibazma.sch.id/api/invitations/${slug}`);
+
+        const data = await res.json();
+
+        setInvitation({
+          guest_name: data.guest_name,
+          guest_title: data.guest_title || 'Wali Siswa Angkatan #2',
+        });
+      } catch (error) {
+        setInvitation({
+          guest_name: 'Tamu Undangan',
+          guest_title: '',
+        });
+
+        console.error(error);
+      }
+    };
+
+    if (slug) {
+      fetchGuest();
+    }
+  }, [slug]);
 
   const triggerShower = () => {
     // Generate/regenerate a beautiful cascade of graduation elements
@@ -229,11 +259,14 @@ export default function App() {
                 <div className="absolute top-2 right-2 flex gap-1">
                   <Sparkles className="w-3.5 h-3.5 text-gold/30 animate-pulse" />
                 </div>
+
                 <span className="text-[10px] uppercase tracking-[0.25em] text-gold block mb-2 font-bold">Kepada Yth. Bapak/Ibu/Sdr/i:</span>
-                <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-extrabold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={guestName}>
-                  {guestName}
+
+                <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-extrabold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
+                  {invitation.guest_name}
                 </h3>
-                {hasCustomGuest ? <span className="text-[10px] text-gold/90 tracking-widest font-bold uppercase block mt-2 animate-pulse">Wali Siswa Angkatan #2</span> : null}
+
+                {invitation.guest_title && <span className="text-[10px] text-gold/90 tracking-widest font-bold uppercase block mt-2 animate-pulse">{invitation.guest_title}</span>}
               </div>
 
               {/* Elegant Button to Open */}
@@ -352,10 +385,11 @@ export default function App() {
             <span className="text-xs text-blue-200/50 block mb-4 font-sans italic">Bapak/Ibu/Saudara/Saudari:</span>
 
             <div className="w-full py-4 px-3 bg-navy-darkest/60 border border-white/5 rounded-xl my-1 backdrop-blur-md overflow-hidden">
-              <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-bold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={guestName}>
-                {guestName}
+              <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-bold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
+                {invitation.guest_name}
               </h3>
-              {hasCustomGuest ? <p className="text-[10px] text-gold/80 mt-1.5 tracking-widest font-sans font-bold uppercase animate-pulse">Wali Siswa Angkatan #2</p> : null}
+
+              {invitation.guest_title && <p className="text-[10px] text-gold/80 mt-1.5 tracking-widest font-sans font-bold uppercase animate-pulse">{invitation.guest_title}</p>}
             </div>
 
             <p className="text-[11px] text-blue-200/60 mt-4 leading-relaxed font-sans max-w-[280px]">Merupakan suatu kehormatan & kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir di acara kami.</p>
