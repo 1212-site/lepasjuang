@@ -266,7 +266,7 @@ export default function App() {
                   {invitation.guest_name}
                 </h3>
 
-                {invitation.guest_title && <span className="text-[10px] text-gold/90 tracking-widest font-bold uppercase block mt-2 animate-pulse">{invitation.guest_title}</span>}
+                
               </div>
 
               {/* Elegant Button to Open */}
@@ -389,7 +389,7 @@ export default function App() {
                 {invitation.guest_name}
               </h3>
 
-              {invitation.guest_title && <p className="text-[10px] text-gold/80 mt-1.5 tracking-widest font-sans font-bold uppercase animate-pulse">{invitation.guest_title}</p>}
+              
             </div>
 
             <p className="text-[11px] text-blue-200/60 mt-4 leading-relaxed font-sans max-w-[280px]">Merupakan suatu kehormatan & kebahagiaan bagi kami apabila Bapak/Ibu berkenan hadir di acara kami.</p>
