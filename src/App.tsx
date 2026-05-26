@@ -66,7 +66,7 @@ export default function App() {
 
         setInvitation({
           guest_name: data.guest_name,
-          guest_title: data.guest_title || 'Wali Siswa Angkatan #2',
+          guest_title: data.guest_title || '',
         });
       } catch (error) {
         setInvitation({
@@ -262,11 +262,16 @@ export default function App() {
 
                 <span className="text-[10px] uppercase tracking-[0.25em] text-gold block mb-2 font-bold">Kepada Yth. </span>
 
-                <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-extrabold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
+                <h3
+                  className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base 
+  font-serif text-white font-extrabold tracking-wide py-1 break-words"
+                  title={invitation.guest_name}
+                >
                   {invitation.guest_name}
                 </h3>
-
-                
+                <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-extrabold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
+                  {invitation.guest_title}
+                </h3>
               </div>
 
               {/* Elegant Button to Open */}
@@ -384,8 +389,11 @@ export default function App() {
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-gold font-bold block mb-1">Kepada Yth.</span>
 
             <div className="w-full py-4 px-3 bg-navy-darkest/60 border border-white/5 rounded-xl my-1 backdrop-blur-md overflow-hidden">
-              <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-bold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
+              <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-bold tracking-wide py-1 break-words" title={invitation.guest_name}>
                 {invitation.guest_name}
+              </h3>
+              <h3 className="text-xs min-[360px]:text-[13px] min-[400px]:text-sm sm:text-base font-serif text-white font-bold tracking-wide py-1 whitespace-nowrap overflow-hidden text-ellipsis" title={invitation.guest_name}>
+                {invitation.guest_title}
               </h3>
             </div>
 
